@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>task2</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+    </style>
+    <style>
+      *{
+        margin: 0;
+        padding: 0;
+      }
+      .slider-1{
+        width: 1200px;
+        height: 600px;
+        background-color: aqua;
+        display: flex;
+        position: absolute;
+      }
+      .images-1{
+        position: relative;
+        height: 617px;
+        width: 600px;
+        display: inline-block;
+        background-color: blueviolet;
+        left: 600px;
+      }
+      .content-1{
+        position: relative;
+        height: 617px;
+        width: 600px;
+        left: -600px;
+        display: inline-block;
+        background-color: blue;
+      }
+      .anchor{
+        width: 15px;
+        height: 15px;
+      }
+      .img1{
+        width: 250px;
+      }
+      .img2{
+        width: 250px;
+      }
+      .img3{
+        width: 200px;
+      }
+
+      @media only Screen and (max-width: 768px) {
+        * {
+          margin: 0;
+          padding: 0;
+          font-family: "poppins", sans-serif;
+        }
+        .whole {
+          width: 100vw;
+          height: 100vh;
+        }
+        .sliders {
+          transform: all 0.3s ease-in-out;
+          display: flex;
+          aspect-ratio: calc(9 / 16);
+          overflow-x: auto;
+          scroll-behavior: smooth;
+          position: fixed;
+          scroll-snap-type: mandatory;
+        }
+        ::-webkit-scrollbar {
+          display: none;
+        }
+        .slider-1 {
+          flex: 1 0 15%;
+          width: 450px;
+          height: 800px;
+        }
+
+        .images {
+          width: 660%;
+          height: 320px;
+          padding: 0px;
+          margin: 0;
+        }
+        .content {
+          margin: 0;
+          width: 430px;
+          vertical-align: top;
+          padding-top: 70px;
+          padding-bottom: 70px;
+          padding-left: 15px;
+          padding-right: 35px;
+          margin-right: 25px;
+          z-index: 1;
+          height: 400px;
+          position: relative;
+          background-color: rgb(98, 29, 98);
+          color: white;
+        }
+
+        .dot {
+          cursor: pointer;
+          height: 15px;
+          position: relative;
+          width: 15px;
+          bottom: 80px;
+          margin: 0 2px;
+          overflow: hidden;
+          background-color: #bbb;
+          border-radius: 50%;
+          display: inline-block;
+          transition: background-color 0.6s ease;
+        }
+
+        .one {
+          border: 1px solid white;
+          border-radius: 15px;
+          cursor: pointer;
+          padding: 5px 5px;
+        }
+        .img1 {
+          position: absolute;
+          z-index: -0.5;
+          left: 190px;
+          top: 25px;
+          width: 235px;
+        }
+        .img2 {
+          position: absolute;
+          z-index: -0.5;
+          top: 25px;
+          width: 235px;
+          left: 0;
+        }
+
+        .hr1 {
+          position: relative;
+          /* margin-top: 20px; */
+        }
+
+        .small-header {
+          font-size: 18px;
+          font-weight: 400;
+          margin-bottom: 15px;
+        }
+        a {
+          text-decoration: none;
+          color: white;
+        }
+        .img3 {
+          width: 250px;
+          left: 35px;
+          position: absolute;
+          top: 280px;
+          border: 2px solid rgb(98, 28, 98, 0.5);
+          z-index: +2;
+          border-radius: 10px;
+        }
+
+        h1 {
+          margin-bottom: 15px;
+        }
+        .anchor {
+          height: 15px;
+          width: 15px;
+          vertical-align: middle;
+        }
+
+        /* specially for slider2  */
+        .slider-2 {
+          flex: 1 0 15%;
+          width: 450px;
+          height: 800px;
+        }
+
+        .images-2 {
+          background-color: rgb(45, 0, 128);
+          width: 470px;
+          height: 320px;
+          padding: 0px;
+          margin: 0;
+        }
+        .img4 {
+          position: relative;
+          width: 200px;
+          bottom: 100px;
+          left: 50px;
+        }
+
+        .img5 {
+          position: relative;
+          top: 80px;
+          width: 200px;
+          left: 25px;
+          bottom: 20px;
+        }
+
+        .content-2 {
+          margin: 0;
+          width: 440px;
+          vertical-align: top;
+          padding: 70px 15px;
+          z-index: 1;
+          height: 400px;
+          position: relative;
+          background-color: black;
+          color: white;
+        }
+
+        /* specially for slider3  */
+        .slider-3 {
+          flex: 1 0 15%;
+          width: 450px;
+          height: 800px;
+        }
+
+        .images-3 {
+          background-color: rgb(45, 0, 128);
+          width: 470px;
+          height: 320px;
+          padding: 0px;
+          margin: 0;
+        }
+
+        .img6 {
+          position: relative;
+          top: 30px;
+          width: 200px;
+          left: 45px;
+          bottom: 80px;
+        }
+        .img7 {
+          position: relative;
+          top: -100px;
+          width: 200px;
+          left: 55px;
+          bottom: 80px;
+        }
+        /* specially for slider4  */
+        .slider-4 {
+          flex: 1 0 15%;
+          width: 450px;
+          height: 800px;
+        }
+
+        .img8 {
+          position: relative;
+          top: 80px;
+          left: 175px;
+          width: 150px;
+        }
+        .img9 {
+          position: relative;
+          top: -50px;
+          left: 25px;
+          right: 20px;
+
+          width: 150px;
+        }
+        .img14 {
+          position: relative;
+          top: 100px;
+          right: 285px;
+          width: 150px;
+        }
+        .img10 {
+          right: 465px;
+          position: relative;
+          top: -190px;
+          width: 180px;
+        }
+        .bread {
+          right: 280px;
+          bottom: -55px;
+          position: relative;
+          width: 55px;
+        }
+        .bread1 {
+          right: 330px;
+          top: -255px;
+          position: relative;
+          width: 50px;
+        }
+        .masala {
+          right: 375px;
+          top: -100px;
+          position: relative;
+          width: 80px;
+        }
+
+        .images-4 {
+          background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        /* specially for slider5 */
+        .slider-5 {
+          flex: 1 0 15%;
+          width: 450px;
+          height: 800px;
+        }
+
+        .slider-6 {
+          flex: 1 0 15%;
+          width: 450px;
+          height: 800px;
+        }
+
+        .page-6 {
+          width: 380px;
+        }
+
+        .page6-1 {
+          width: 150px;
+          left: 20px;
+          position: relative;
+          top: -120px;
+        }
+
+        .page6-2 {
+          top: 250px;
+          width: 150px;
+          position: relative;
+          left: 20px;
+          right: 160px;
+        }
+
+        .page6-3 {
+          width: 160px;
+          position: relative;
+          top: 200px;
+          right: 295px;
+        }
+
+        .page6-4 {
+          width: 140px;
+          position: relative;
+          right: 145px;
+          top: 80px;
+        }
+
+        .page6-5 {
+          width: 150px;
+          position: relative;
+          right: 440px;
+          top: -50px;
+        }
+        .images-6 {
+          background-color: white;
+        }
+
+        .slider-7 {
+          width: 450px;
+          height: 800px;
+        }
+        .page7-1 {
+          position: relative;
+          top: 55px;
+          z-index: 1;
+          width: 200px;
+          left: 2900px;
+          right: 0;
+        }
+        .page7-2 {
+          position: relative;
+          right: 0px;
+          z-index: -0.25;
+          top: 75px;
+          left: 3025px;
+          width: 150px;
+        }
+        .page7-3 {
+          position: relative;
+          left: 2860px;
+          top: 280px;
+          width: 235px;
+        }
+        .images-7 {
+          background-color: chartreuse;
+
+          width: 480px;
+          height: 320px;
+          padding: 0px;
+          margin: 0; 
+        }
+        .images-5 {
+          background-color: lightskyblue;
+        }
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+  </head>
+  <body>
+    <!-- section1 -->
+    <div class="whole">
+      <div class="sliders">
+        <div class="slides slider-1">
+          <div class="images images-1">
+            <img class="img1" src="1st page(1).png" alt="" />
+            <img src="1stpage(2).png" alt="" class="img2" />
+            <img src="middlepage.png" class="img3" alt="" />
+            <!-- <hr class="hr1" /> -->
+          </div>
+          <div class="content content-1">
+            <h1>ABC 123</h1>
+            <h6 class="small-header">
+              This is sample text for ABC 123 .This is sample text for ABC 123
+            </h6>
+            <a href=""
+              >View Case Study
+              <img class="anchor" src="arrowforanchor.png" alt=""
+            /></a>
+          </div>
+        </div>
+
+        <!-- section-2 -->
+
+         <div class="slides slider-2"> 
+          <div class="images images-2">
+            <img src="2ndpage(2).png" alt="" class="img5" />
+            <img class="img4" src="2ndpage(1).png" alt="" />
+
+          </div>
+
+          <div class="content content-2">
+            <h1>ABC 2</h1>
+            <h6 class="small-header">This is sample text for ABC 2.</h6>
+            <a href=""
+              >Case Study - <button class="one">Coming Soon</button>
+            </a>
+          </div>
+        </div> 
+
+        <!-- section-3 -->
+
+        <div class="slides slider-3">
+          <div class="images-3">
+            <img class="img6" src="3rdpage(1).png" alt="" />
+            <img class="img7" src="3rdpage(2).png" alt="" />
+
+          </div>
+
+          <div class="content">
+            <h1>ABC 2</h1>
+            <h6 class="small-header">This is sample text for ABC 2.</h6>
+            <a href=""
+              >Case Study
+              <button class="one">Coming Soon</button>
+            </a>
+          </div>
+        </div>
+
+        <!-- section-4 -->
+
+         <div class="slides slider-4"> 
+          <div class="images images-4">
+            <img src="domino-1.png" alt="" class="img8" />
+            <img class="img9" src="domino-2.png" alt="" />
+            <img class="img14" src="domino-3.png" alt="" />
+            <img class="img10" src="pizza_box.png" alt="" />
+            <img class="bread" src="dominos-bread.png" alt="" />
+            <img class="bread1" src="dominos-bread1.png" alt="" />
+            <img class="masala" src="dominos-masala.png" alt="" />
+          </div>
+
+          <div class="content content-4">
+            <h1>ABC 123</h1>
+            <h6 class="small-header">
+              This is sample text for ABC 123 .This is sample text for ABC 123
+            </h6>
+            <a href=""
+              >View Case Study
+              <img class="anchor" src="arrowforanchor.png" alt=""
+            /></a>
+          </div>
+        </div> 
+
+        <!-- section-5 -->
+        <div class="slides slider-5">
+          <div class="images images-5">
+            <img src="page(6)-1.png" class="page6-1" alt="" />
+            <img src="page(6)-2.png" class="page6-2" alt="" />
+            <img src="page(6)-3.png" class="page6-3" alt="" />
+            <img src="page(6)-4.png" class="page6-4" alt="" />
+            <img src="page(6)-5.png" class="page6-5" alt="" />
+
+          </div>
+
+          <div class="content">
+            <h1>ABC 123</h1>
+            <h6 class="small-header">
+              This is sample text for ABC 123 .This is sample text for ABC 123
+            </h6>
+            <a href=""
+              >View Case Study
+              <img class="anchor" src="arrowforanchor.png" alt=""
+            /></a>
+          </div>
+        </div>
+
+        <!-- section-6 -->
+        <div class="slides slider-6">
+          <div class="images images-6">
+            <img class="page-6" src="page(6).png" alt="" />
+
+          </div>
+
+          <div class="content">
+            <h1>ABC 123</h1>
+            <h6 class="small-header">
+              This is sample text for ABC 123 .This is sample text for ABC 123
+            </h6>
+            <a href=""
+              >View Case Study
+              <img class="anchor" src="arrowforanchor.png" alt=""
+            /></a>
+          </div>
+        </div>
+
+        <!-- section-7 -->
+        <div class="slides slider-7">
+          <div class="images images-7">
+            <img class="page7-1" src="page(7)-1.png" alt="" />
+            <img class="page7-3" src="page(7)-middle.png" alt="" />
+
+            <img src="page(7)-2png.png" alt="" class="page7-2" />
+          </div>
+
+          <div class="content">
+            <h1>ABC 123</h1>
+            <h6 class="small-header">
+              This is sample text for ABC 123 .This is sample text for ABC 123
+            </h6>
+            <a href=""
+              >View Case Study
+              <img class="anchor" src="arrowforanchor.png" alt=""
+            /></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align: center">
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+      <span class="dot" onclick="currentSlide(3)"></span>
+      <span class="dot" onclick="currentSlide(4)"></span>
+      <span class="dot" onclick="currentSlide(5)"></span>
+      <span class="dot" onclick="currentSlide(6)"></span>
+      <span class="dot" onclick="currentSlide(7)"></span>
+    </div>
+
+    <!-- <script>
+
+let slideIndex = 1;
+showSlides(slideIndex);
+
+
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("slides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+}
+    </script>  -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  </body>
+</html>
